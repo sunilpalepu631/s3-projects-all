@@ -19,7 +19,7 @@ class S3UploadSerializer(serializers.Serializer):
         name = data.get('original_name')
         extension = name.split('.')[-1]
         print('extension', extension)
-        allowed_size = 10_000   #10 mb or 10_000 kb
+        allowed_size = 1024 * 1024 * 10   #10 mb 
 
         #check weather the original_name is in db.
         #if it is in db through an error

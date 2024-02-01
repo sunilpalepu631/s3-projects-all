@@ -144,3 +144,15 @@ AWS_DEFAULT_ACL = None
 AWS_S3_VERIFY = True
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+import boto3
+
+s3 = boto3.client('s3',
+                    aws_access_key_id = "aaaaaAKIATCP4XX4BJ4QFVVML",
+                    aws_secret_access_key = AWS_SECRET_ACCESS_KEY,
+                    region_name='ap-south-1')
+
+print(s3)
+
+objects = s3.list_objects_v2(Bucket='my-first-bucket-07122023')
+for object in objects['Contents']:
+    print(object['Key'])
